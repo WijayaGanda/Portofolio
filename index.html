@@ -6,6 +6,7 @@
     <title>Wijaya Ganda Prasetyo - Mobile Developer Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -38,6 +39,9 @@
                     <div class="hero-buttons fade-in-delay-3">
                         <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
                         <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                        <button onclick="downloadPortfolioPDF()" class="btn btn-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
                     </div>
                 </div>
                 <div class="hero-image">
