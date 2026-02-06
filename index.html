@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wijaya Ganda Prasetyo - Mobile Developer Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">WGP</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Beranda</a></li>
+                <li><a href="#about" class="nav-link">Tentang</a></li>
+                <li><a href="#experience" class="nav-link">Pengalaman</a></li>
+                <li><a href="#portfolio" class="nav-link">Portofolio</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="fade-in">Halo, Saya <span class="highlight">Wijaya Ganda Prasetyo</span></h1>
+                    <h2 class="fade-in-delay">Mobile Developer Flutter Enthusiast</h2>
+                    <p class="fade-in-delay-2">Menciptakan aplikasi mobile yang inovatif dan user-friendly</p>
+                    <div class="hero-buttons fade-in-delay-3">
+                        <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+                        <a href="#contact" class="btn btn-secondary">Hubungi Saya</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img id="profileImage" src="assets/profile-placeholder.jpg" alt="Wijaya Ganda Prasetyo">
+                        <div class="image-overlay">
+                            <label for="imageUpload" class="upload-btn">
+                                <i class="fas fa-camera"></i> Upload Foto
+                            </label>
+                            <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-text">
+                        <h3>Mobile & Full-Stack Developer</h3>
+                        <p>Saya adalah seorang Mobile & Full-Stack Developer yang passionate dalam menciptakan aplikasi mobile yang berkualitas tinggi. Dengan spesialisasi dalam Flutter dan Dart untuk mobile development, serta keahlian dalam web development dan backend menggunakan Laravel dan Express.js, saya berkomitmen untuk menghadirkan solusi teknologi end-to-end yang dapat meningkatkan pengalaman pengguna.</p>
+                    </div>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Flutter & Dart</h4>
+                        <p>Pengembangan aplikasi mobile cross-platform dengan Flutter dan Dart untuk Android & iOS</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h4>Web Development</h4>
+                        <p>Pengembangan website modern dan responsif dengan HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-laravel"></i>
+                        </div>
+                        <h4>Laravel Backend</h4>
+                        <p>Pengembangan REST API dan backend sistem menggunakan Laravel (PHP)</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h4>Express.js Backend</h4>
+                        <p>Pengembangan server-side aplikasi dengan Node.js dan Express.js</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database Management</h4>
+                        <p>MySQL, PostgreSQL, MongoDB, Firebase untuk manajemen data aplikasi</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h4>Version Control & CI/CD</h4>
+                        <p>Git, GitHub, GitLab untuk kolaborasi dan deployment automation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Pengalaman</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">
+                            <i class="fas fa-calendar-alt"></i> Magang
+                        </div>
+                        <h3>Mobile Developer Intern</h3>
+                        <h4>Aplikasi Wargaku Surabaya</h4>
+                        <p>Berkontribusi dalam pengembangan aplikasi Wargaku Surabaya, sebuah aplikasi mobile untuk memudahkan warga Surabaya dalam mengakses layanan publik dan informasi kota. Bertanggung jawab dalam:</p>
+                        <ul>
+                            <li>Pengembangan fitur-fitur aplikasi mobile</li>
+                            <li>Implementasi UI/UX design yang user-friendly</li>
+                            <li>Integrasi dengan backend API</li>
+                            <li>Testing dan debugging aplikasi</li>
+                            <li>Kolaborasi dengan tim development</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Laravel</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portofolio</h2>
+            <p class="section-subtitle">Berikut adalah beberapa proyek yang telah saya kerjakan</p>
+            
+            <div id="portfolioGrid" class="portfolio-grid">
+                <!-- Portfolio Item 1 - Wargaku Surabaya -->
+                <div class="portfolio-item">
+                    <div class="portfolio-image">
+                        <img src="assets/portfolio-placeholder.jpg" alt="Wargaku Surabaya">
+                        <div class="portfolio-overlay">
+                            <button class="btn-view" onclick="viewPortfolio(0)">Lihat Detail</button>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Wargaku Surabaya</h3>
+                        <p>Aplikasi mobile untuk layanan publik warga Surabaya</p>
+                        <div class="portfolio-tags">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>Laravel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for more portfolio items -->
+                <div class="portfolio-item add-portfolio">
+                    <div class="add-portfolio-content" onclick="openAddPortfolioModal()">
+                        <i class="fas fa-plus"></i>
+                        <p>Tambah Proyek</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <p class="section-subtitle">Tertarik untuk berkolaborasi? Mari terhubung!</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>wijayaganda879@gmail.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h4>Telepon</h4>
+                        <p>081818455048</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Lokasi</h4>
+                        <p>Surabaya, Indonesia</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/wijaya-ganda-prasetyo-9a4402358/" class="social-link"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/WijayaGanda" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/wijayaganda_7/" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Wijaya Ganda Prasetyo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modal -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- Add Portfolio Modal -->
+    <div id="addPortfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddPortfolioModal()">&times;</span>
+            <h2 id="modalTitle">Tambah Proyek Baru</h2>
+            <form id="addPortfolioForm">
+                <input type="hidden" id="editIndex" value="-1">
+                <div class="form-group">
+                    <label for="projectTitle">Judul Proyek</label>
+                    <input type="text" id="projectTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Deskripsi Singkat</label>
+                    <textarea id="projectDescription" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectDetails">Detail Proyek</label>
+                    <textarea id="projectDetails" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="projectTags">Teknologi (pisahkan dengan koma)</label>
+                    <input type="text" id="projectTags" placeholder="Flutter, Dart, Laravel">
+                </div>
+                <div class="form-group">
+                    <label for="projectLink">Link Portofolio (opsional)</label>
+                    <input type="url" id="projectLink" placeholder="https://github.com/username/project">
+                    <small style="color: #6b7280; font-size: 0.85rem; margin-top: 0.25rem; display: block;">Masukkan link GitHub, demo, atau dokumentasi proyek</small>
+                </div>
+                <div class="form-group">
+                    <label for="projectImage">Upload Gambar Proyek</label>
+                    <input type="file" id="projectImage" accept="image/*">
+                    <small id="currentImageText" style="color: #6b7280; font-size: 0.85rem; margin-top: 0.25rem; display: none;">Biarkan kosong untuk mempertahankan gambar yang ada</small>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Tambah Proyek</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeAddPortfolioModal()">Batal</button>
+                    <button type="button" class="btn" id="deleteBtn" style="background: #ef4444; color: white; display: none;" onclick="deletePortfolio()">Hapus Proyek</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
