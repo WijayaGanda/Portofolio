@@ -809,6 +809,31 @@ section {
     padding: 2rem 0;
 }
 
+/* ========== Hide Interactive Elements ========== */
+/* Menyembunyikan tombol upload foto, edit, dan tambah proyek */
+/* Elemen tidak dihapus, hanya disembunyikan dengan CSS */
+
+/* Sembunyikan upload foto button */
+.image-overlay {
+    display: none !important;
+}
+
+/* Sembunyikan tombol tambah proyek */
+.add-portfolio {
+    display: none !important;
+}
+
+/* Sembunyikan tombol edit di portfolio overlay */
+.portfolio-overlay .btn-view:nth-child(2),
+.portfolio-overlay button[onclick*="editPortfolio"] {
+    display: none !important;
+}
+
+/* Sembunyikan tombol delete di modal */
+#deleteBtn {
+    display: none !important;
+}
+
 /* ========== Modal ========== */
 .modal {
     display: none;
