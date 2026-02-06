@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export Data Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .btn-success:hover {
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .data-section {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .data-section h3 {
+            color: #1f2937;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status.found {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status.empty {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+        
+        pre {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.6;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .info-box p {
+            margin: 0;
+            color: #1e40af;
+        }
+        
+        .count {
+            font-weight: bold;
+            color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📤 Export Data Portfolio</h1>
+        <p>Tool untuk mengekspor data yang tersimpan di localStorage browser Anda</p>
+        
+        <div class="info-box">
+            <p><strong>📌 Instruksi:</strong> Buka halaman ini di browser yang sama tempat Anda menambahkan data portfolio.</p>
+        </div>
+        
+        <div style="margin-bottom: 30px;">
+            <button class="btn" onclick="loadData()">🔄 Refresh Data</button>
+            <button class="btn btn-success" onclick="exportToFile()">💾 Download JSON File</button>
+            <button class="btn" onclick="copyToClipboard()">📋 Copy ke Clipboard</button>
+        </div>
+        
+        <div id="portfolioData" class="data-section">
+            <h3>Portfolio Items <span id="portfolioStatus" class="status">Loading...</span></h3>
+            <p class="count">Total: <span id="portfolioCount">0</span> items</p>
+            <pre id="portfolioContent">Loading...</pre>
+        </div>
+        
+        <div id="imageData" class="data-section">
+            <h3>Profile Image <span id="imageStatus" class="status">Loading...</span></h3>
+            <pre id="imageContent">Loading...</pre>
+        </div>
+        
+        <div id="allData" class="data-section">
+            <h3>All LocalStorage Data <span id="allStatus" class="status">Loading...</span></h3>
+            <pre id="allContent">Loading...</pre>
+        </div>
+    </div>
+    
+    <script>
+        function loadData() {
+            // Load Portfolio Items
+            const portfolioItems = localStorage.getItem('portfolioItems');
+            const portfolioContent = document.getElementById('portfolioContent');
+            const portfolioStatus = document.getElementById('portfolioStatus');
+            const portfolioCount = document.getElementById('portfolioCount');
+            
+            if (portfolioItems) {
+                try {
+                    const parsed = JSON.parse(portfolioItems);
+                    portfolioContent.textContent = JSON.stringify(parsed, null, 2);
+                    portfolioStatus.textContent = 'Found';
+                    portfolioStatus.className = 'status found';
+                    portfolioCount.textContent = parsed.length;
+                } catch (e) {
+                    portfolioContent.textContent = 'Error parsing data: ' + e.message;
+                    portfolioStatus.textContent = 'Error';
+                    portfolioStatus.className = 'status empty';
+                }
+            } else {
+                portfolioContent.textContent = 'No data found';
+                portfolioStatus.textContent = 'Empty';
+                portfolioStatus.className = 'status empty';
+                portfolioCount.textContent = '0';
+            }
+            
+            // Load Profile Image
+            const profileImage = localStorage.getItem('profileImage');
+            const imageContent = document.getElementById('imageContent');
+            const imageStatus = document.getElementById('imageStatus');
+            
+            if (profileImage) {
+                imageContent.textContent = profileImage.substring(0, 200) + '...\n(Image data truncated - ' + profileImage.length + ' characters)';
+                imageStatus.textContent = 'Found';
+                imageStatus.className = 'status found';
+            } else {
+                imageContent.textContent = 'No profile image found';
+                imageStatus.textContent = 'Empty';
+                imageStatus.className = 'status empty';
+            }
+            
+            // Load All Data
+            const allData = {};
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                allData[key] = value;
+            }
+            
+            const allContent = document.getElementById('allContent');
+            const allStatus = document.getElementById('allStatus');
+            
+            if (Object.keys(allData).length > 0) {
+                allContent.textContent = JSON.stringify(allData, null, 2);
+                allStatus.textContent = Object.keys(allData).length + ' keys found';
+                allStatus.className = 'status found';
+            } else {
+                allContent.textContent = 'No data in localStorage';
+                allStatus.textContent = 'Empty';
+                allStatus.className = 'status empty';
+            }
+        }
+        
+        function exportToFile() {
+            const data = {
+                portfolioItems: localStorage.getItem('portfolioItems'),
+                profileImage: localStorage.getItem('profileImage'),
+                exportDate: new Date().toISOString(),
+                note: 'Portfolio data exported from localStorage'
+            };
+            
+            const jsonStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'portfolio-data-' + new Date().toISOString().split('T')[0] + '.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            alert('✅ Data berhasil didownload!');
+        }
+        
+        function copyToClipboard() {
+            const portfolioItems = localStorage.getItem('portfolioItems');
+            if (portfolioItems) {
+                navigator.clipboard.writeText(portfolioItems).then(() => {
+                    alert('✅ Data portfolio berhasil dicopy ke clipboard!');
+                }).catch(err => {
+                    alert('❌ Gagal copy: ' + err.message);
+                });
+            } else {
+                alert('❌ Tidak ada data portfolio untuk dicopy');
+            }
+        }
+        
+        // Load data on page load
+        window.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

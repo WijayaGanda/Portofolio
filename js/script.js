@@ -66,6 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ========== Portfolio Data Management ==========
+// Data portfolio sudah di-hardcode agar tampil di semua device
 let portfolioItems = [
     {
         id: 1,
@@ -73,14 +74,68 @@ let portfolioItems = [
         description: "Aplikasi mobile untuk layanan publik warga Surabaya",
         details: "Aplikasi Wargaku Surabaya adalah platform mobile yang memudahkan warga Surabaya dalam mengakses berbagai layanan publik. Aplikasi ini dikembangkan menggunakan Flutter untuk antarmuka mobile yang responsif dan Laravel untuk backend API. Aplikasi ini menyediakan fitur pelaporan masalah kota, informasi layanan pemerintah, dan akses ke berbagai fasilitas publik.",
         tags: ["Flutter", "Dart", "Laravel", "REST API", "MySQL"],
-        image: "assets/portfolio-placeholder.jpg"
-    }
+        link: "https://apps.apple.com/id/app/wargaku-surabaya/id6753699265?l=id",
+        image: "assets/wargaku.png"
+    },
+    {
+        id: 2,
+        title: "Aplikasi Rental Camera",
+        description: "Final Project mata kuliah pengembangan aplikasi mobile menggunakan react native",
+        details: "Pada final project rentcamera saya dan kelompok saya mengembangkan aplikasi rental kamera yang terhubung dengan firebase dan integrasi API menggunakan react native.",
+        tags: ["React Native", "Expo Go", "Firebase", "REST API"],
+        link: "https://github.com/WijayaGanda/rentcamera.git",
+        image: "assets/rentcamera.png"
+    },
+    {
+        id: 3,
+        title: "Sistem Monitoring Kualitas Air lobster Air Tawar Berbasis Mobile",
+        description: "Sistem yang memonitor kualitas air berdasarkan sensor IoT",
+        details: "Sistem ini menampilkan grafik suhu, ph, do, tds secara realtime sesuai dengan sensor IoT yang sudah dibuat. Aplikasi dan sensor IoT berkomunikasi melalui API dengan interval 2 detik. Hasil dari sensor akan disimpan di database dan diklasifikasi menggunakan algoritma decision tree untuk menentukan kualitas air.",
+        tags: ["Flutter", "Dart", "Laravel", "REST API"],
+        link: "",
+        image: "assets/fullobstermobile.png"
+    },
+    {
+        id: 4,
+        title: "Sistem Monitoring Kualitas Air lobster Air Tawar Berbasis Web",
+        description: "Sistem yang memonitor kualitas air berdasarkan sensor IoT",
+        details: "Sistem ini menampilkan grafik suhu, ph, do, tds secara realtime sesuai dengan sensor IoT yang sudah dibuat. Web dan sensor IoT berkomunikasi melalui API dengan interval 2 detik. Hasil dari sensor akan disimpan di database dan diklasifikasi menggunakan algoritma decision tree untuk menentukan kualitas air.",
+        tags: ["Laravel", "MySQL", "JavaScript", "REST API"],
+        link: "http://195.88.211.90/~fullobst/dashboard",
+        image: "assets/fullobsterweb.png"
+    },
+    {
+        id: 5,
+        title: "Sistem Pelayanan Bengkel Berbasis Mobile App (ONGOING)",
+        description: "Project ini sedang dalam pengerjaan dan diperuntukkan untuk kebutuhan Skripsi/tugas akhir",
+        details: "Project ini merupakan project tugas akhir yang memiliki fitur-fitur untuk menjembatani kebutuhan pelanggan dan juga pihak bengkel yaitu Speedlab Racing. Bengkel ini merupakan bengkel khusus moge > 400 CC.",
+        tags: ["Flutter", "Dart", "MongoDB", "REST API", "Express.js"],
+        link: "",
+        image: "assets/bengkel.png"
+    },
 ];
 
-// Load from localStorage if available
+// Backup: Load from localStorage if available (for future additions)
 const savedPortfolio = localStorage.getItem('portfolioItems');
 if (savedPortfolio) {
-    portfolioItems = JSON.parse(savedPortfolio);
+    try {
+        const parsed = JSON.parse(savedPortfolio);
+        // Merge with hardcoded data, preferring localStorage for images if available
+        if (parsed.length > 0) {
+            parsed.forEach(item => {
+                const existing = portfolioItems.find(p => p.id === item.id);
+                if (existing && item.image && item.image.startsWith('data:image')) {
+                    // Update image from localStorage if it's base64
+                    existing.image = item.image;
+                } else if (!existing) {
+                    // Add new item if not in hardcoded list
+                    portfolioItems.push(item);
+                }
+            });
+        }
+    } catch (e) {
+        console.error('Error parsing portfolio data:', e);
+    }
 }
 
 function savePortfolioItems() {
